@@ -1,0 +1,6 @@
+                          ---------- EXERCISE HISTORY ----------                          
+ 
+USERNAME             EXERCISE             DURATION        CALORIES        DATE            
+ 
+Nikhil               Basketball           15              135             29-12-2025      
+Nikhil               Badminton            88              792             29-12-2025      

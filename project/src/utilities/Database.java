@@ -19,7 +19,12 @@ public class Database {
 	public static void checkConnection() {
 		try {
 			if (connection == null) {
-				connection = DriverManager.getConnection("jdbc:mysql://localhost/" + App.getDatabase(), "root", "");
+				// Try to get password from environment variable or system property, default to empty string
+				String password = System.getenv("MYSQL_PASSWORD");
+				if (password == null) {
+					password = System.getProperty("mysql.password", "");
+				}
+				connection = DriverManager.getConnection("jdbc:mysql://localhost/" + App.getDatabase(), "root", password);
 			}
 		} catch (Exception exception) {
 			showError();

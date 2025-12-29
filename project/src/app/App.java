@@ -5,12 +5,20 @@ import frames.Welcome;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+import java.io.IOException;
+import java.awt.FontFormatException;
 
-public class App {
+public final class App {
 
-	private static String title, database, file;
+	private static final String title;
+	private static final String database;
+	private static final String file;
 	private static Image icon;
 	private static Font font;
+
+	private App() {
+		// This class is not meant to be instantiated.
+	}
 
 	static {
 		try {
@@ -19,7 +27,7 @@ public class App {
 			file = "Fitbliss-History.txt";
 			icon = new ImageIcon(Objects.requireNonNull(App.class.getResource("/icon.png"))).getImage();
 			font = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(App.class.getResourceAsStream("/font.ttf")));
-		} catch (Exception exception) {
+		} catch (IOException | FontFormatException | NullPointerException exception) {
 			exception.printStackTrace();
 		}
 	}
